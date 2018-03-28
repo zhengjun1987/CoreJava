@@ -3,6 +3,8 @@ package chapter0602lambda;
 import utils.ExecutionDurationTimer;
 import utils.MyUtils;
 
+import java.util.logging.Logger;
+
 /**
  * Author: Zheng Jun
  * Mail:zhengjun1987@outlook.com
@@ -13,6 +15,7 @@ public class TimerGreeter extends Greeter {
     public void greet(String pX) {
         long vExecute = new ExecutionDurationTimer().execute(10, () -> super.greet(pX));
         System.out.println(MyUtils.getCurrentTime() + "vExecute = " + vExecute);
+        Logger.getGlobal().info("File -> "+vExecute);
     }
 
     public static void main(String[] args) {

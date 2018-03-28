@@ -1,6 +1,7 @@
 package chapter0602lambda;
 
 import utils.ExecutionDurationTimer;
+import utils.MyUtils;
 
 /**
  * Author: Zheng Jun
@@ -13,6 +14,6 @@ public class Repeat {
     }
 
     public static void repeatMsg(String string,int delay){
-        new ExecutionDurationTimer().execute(delay,() -> new Greeter().greet(string));
+        new ExecutionDurationTimer().execute(delay,() -> System.out.println(MyUtils.getCurrentTime() +string));
     }
 }
