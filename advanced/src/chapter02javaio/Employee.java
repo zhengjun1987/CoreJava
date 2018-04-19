@@ -6,6 +6,8 @@ package chapter02javaio;
  * Date: 2018/4/18 16:59
  */
 public class Employee {
+    static final int NAME_SIZE = 30;//字符数
+    static final long RECORD_SIZE = NAME_SIZE * 2 + 4 * 4;//字节数
     private String name;
     private int salary;
     private int birth_year;
