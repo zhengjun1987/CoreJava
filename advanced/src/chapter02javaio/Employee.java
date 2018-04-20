@@ -1,11 +1,13 @@
 package chapter02javaio;
 
+import java.io.*;
+
 /**
  * Author: Zheng Jun
  * Mail:zhengjun1987@outlook.com
  * Date: 2018/4/18 16:59
  */
-public class Employee {
+public class Employee implements Serializable,Cloneable{
     static final int NAME_SIZE = 30;//字符数
     static final long RECORD_SIZE = NAME_SIZE * 2 + 4 * 4;//字节数
     private String name;
@@ -51,5 +53,20 @@ public class Employee {
 
     int getBirth_day() {
         return birth_day;
+    }
+
+    @Override
+    protected Employee clone() throws CloneNotSupportedException {
+        Employee readObject = null;
+        try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            objectOutputStream.writeObject(this);
+            ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+            readObject = (Employee) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return readObject ;
     }
 }
