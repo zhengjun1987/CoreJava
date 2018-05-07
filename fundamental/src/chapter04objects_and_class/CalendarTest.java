@@ -1,5 +1,7 @@
 package chapter04objects_and_class;
 
+import utils.MyUtils;
+
 import java.time.LocalDate;
 
 /**
@@ -10,8 +12,10 @@ import java.time.LocalDate;
 public class CalendarTest {
     public static void main(String[] args) {
         LocalDate date = LocalDate.now();
+        System.out.println(MyUtils.getCurrentTime() + "date = " + date);
         int vMonthValue = date.getMonthValue();
         int vDayOfMonth = date.getDayOfMonth();
-        date = date.minusDays(vDayOfMonth - 1);
+        date = date.minusDays(1);
+        System.out.println(MyUtils.getCurrentTime() + "date = " + date);
     }
 }
