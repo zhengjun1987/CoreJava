@@ -22,6 +22,7 @@ public class HalfCloseSocket {
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"), true);
             printWriter.println("白日依山尽\n黄河入海流\n欲穷千里目\n更上一层楼");
             socket.shutdownOutput();
+            System.out.println(MyUtils.getCurrentTime() + "socket.isOutputShutdown() = " + socket.isOutputShutdown());
             while (scanner.hasNextLine()) {
                 System.out.println(MyUtils.getCurrentTime() + "scanner.nextLine() = " + scanner.nextLine());
             }
